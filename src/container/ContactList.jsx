@@ -6,11 +6,11 @@ export default function ContactList () {
     React.useEffect(() => {
         const fetchData = async () => {
             try {
-            const response = await fetch('https://contact-apps-api.ainunns.me/api/contacts',
+            const response = await fetch(`${process.env.BASE_URL}/api/contacts`,
                 {
                     headers : {
                         'Content-Type': 'application/json',
-                        Authorization : `Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDZmNDBkLWQyNzYtNDA5YS04MmVmLWJmZDc1MzY1NjQ2YyIsIm5hbWUiOiJGaW9yZW56YSBBZGVsaWEgTmFsbGUiLCJlbWFpbCI6IjUwMjcyMzEwNTNAc3R1ZGVudC5pdHMuYWMuaWQiLCJpYXQiOjE3MjY4NTE3MDQsImV4cCI6MTcyOTQ0MzcwNH0.hh8C3PaCkq3l1cHBxs_86cGE-qV7UQUMIP42-fKi0vc`
+                        Authorization : `Bearer ${process.env.BEARER_TOKEN}`,
                     },
                 }
             );
