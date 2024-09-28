@@ -20,23 +20,22 @@ export default function ContactList () {
             catch (error) {
                 console.log(error);
             }
-            fetchData();
         };
+        fetchData();
     }, []);
+
+    const addContact = (newContact) => {
+        setContacts([...contacts, newContact]);
+    };
+
     return (
         <section className="contact_list">
-        <pre>{JSON.stringify(contacts, null, 2)}</pre>
         <h2 className="main_container_subheading2">Contact List</h2>
         <div id="contactList">
         {contacts.map((contact) => (
-        <ContactItem 
-            key= {contact.id}
-            imgUrl={contact.photo}
-            name={contact.name}
-            email={contact.email}
-        />
-        ))}
+            <ContactItem key={contact.id} name={contact.name} email={contact.email} imgUrl={contact.img_url}/>
+        ))} 
         </div>
       </section>
-    );
+    );  
 }
